@@ -1,13 +1,13 @@
 package org.roon.awss3sample.controller;
 
 import com.amazonaws.services.s3.model.Bucket;
+import com.amazonaws.services.s3.model.ObjectListing;
 import org.roon.awss3sample.service.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -30,6 +30,12 @@ public class S3ApiController {
     @DeleteMapping("/buckets/{bucketName}")
     public void delete(@PathVariable String bucketName) {
         s3Service.delete(bucketName);
+    }
+
+    //list all the available objects in our S3 bucket:
+    @GetMapping("/buckets/{bucketName}/objects")
+    public ObjectListing objectList(@PathVariable String bucketName) {
+        return s3Service.getObjectList(bucketName);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

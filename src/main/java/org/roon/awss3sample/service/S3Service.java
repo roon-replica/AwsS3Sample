@@ -2,6 +2,7 @@ package org.roon.awss3sample.service;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.Bucket;
+import com.amazonaws.services.s3.model.ObjectListing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,9 @@ public class S3Service {
 
     public void delete(String name){
         s3client.deleteBucket(name);
+    }
+
+    public ObjectListing getObjectList(String name){
+        return s3client.listObjects(name);
     }
 }
