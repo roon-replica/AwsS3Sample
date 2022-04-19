@@ -25,6 +25,13 @@ public class S3ApiController {
         return s3Service.getBucketList();
     }
 
+    // bucket이 비어있지 않으면 예외 발생
+    // com.amazonaws.services.s3.model.AmazonS3Exception: The bucket you tried to delete is not empty
+    @DeleteMapping("/buckets/{bucketName}")
+    public void delete(@PathVariable String bucketName) {
+        s3Service.delete(bucketName);
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     ResponseEntity<String> illegalArgsException(IllegalArgumentException e) {
         e.printStackTrace();

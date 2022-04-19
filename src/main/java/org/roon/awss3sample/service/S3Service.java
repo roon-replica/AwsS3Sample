@@ -23,4 +23,8 @@ public class S3Service {
     public List<Bucket> getBucketList(){
         return s3client.listBuckets();
     }
+
+    public void delete(String name){
+        s3client.deleteBucket(name);
+    }
 }
