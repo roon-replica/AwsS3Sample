@@ -2,6 +2,7 @@ package org.roon.awss3sample.controller;
 
 import com.amazonaws.services.s3.model.Bucket;
 import com.amazonaws.services.s3.model.ObjectListing;
+import com.amazonaws.services.s3.model.S3Object;
 import org.roon.awss3sample.service.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,6 +37,11 @@ public class S3ApiController {
     @GetMapping("/buckets/{bucketName}/objects")
     public ObjectListing objectList(@PathVariable String bucketName) {
         return s3Service.getObjectList(bucketName);
+    }
+
+    @GetMapping("/buckets/{bucketName}/objects/{objectKey}")
+    public S3Object download(@PathVariable String bucketName, @PathVariable String objectKey) {
+        return s3Service.getObject(bucketName, objectKey);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
