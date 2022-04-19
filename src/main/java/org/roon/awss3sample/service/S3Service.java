@@ -6,7 +6,9 @@ import com.amazonaws.services.s3.model.ObjectListing;
 import com.amazonaws.services.s3.model.S3Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.List;
 
 @Service
@@ -28,6 +30,10 @@ public class S3Service {
 
     public void delete(String name) {
         s3client.deleteBucket(name);
+    }
+
+    public void upload(String bucketName, String key, File file) {
+        s3client.putObject(bucketName, key, file);
     }
 
     public ObjectListing getObjectList(String name) {
