@@ -5,6 +5,8 @@ import com.amazonaws.services.s3.model.Bucket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class S3Service {
     @Autowired
@@ -16,5 +18,9 @@ public class S3Service {
         }
 
         return s3client.createBucket(name);
+    }
+
+    public List<Bucket> getBucketList(){
+        return s3client.listBuckets();
     }
 }

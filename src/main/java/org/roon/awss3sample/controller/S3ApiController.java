@@ -5,19 +5,24 @@ import org.roon.awss3sample.service.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class S3ApiController {
     @Autowired
     private S3Service s3Service;
 
-    @GetMapping("/bucket/{bucketName}") // post가 적절하지만 편의상 get 사용
+    @PostMapping("/buckets/{bucketName}")
     public Bucket create(@PathVariable String bucketName) {
         return s3Service.createBucket(bucketName);
+    }
+
+    @GetMapping("/buckets")
+    public List<Bucket> list() {
+        return s3Service.getBucketList();
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
