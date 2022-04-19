@@ -26,6 +26,9 @@ dependencies {
 
     implementation group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.12.200'
 
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.6.0'
+
+
 }
 
 tasks.named('test') {
