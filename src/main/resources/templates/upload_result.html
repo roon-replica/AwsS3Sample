@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>upload result</title>
+</head>
+<body>
+
+<h2>Submitted File</h2>
+<table>
+    <tr>
+        <td>OriginalFileName:</td>
+        <td th:text=${formData.file.originalFilename}></td>
+    </tr>
+    <tr>
+        <td>Type:</td>
+        <td th:text=${formData.file.contentType}></td>
+    </tr>
+
+    <tr>
+        <td>bucket name</td>
+        <td th:text=${formData.bucketName}></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

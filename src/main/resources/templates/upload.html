@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>file upload</title>
 </head>
 <body>
 
-<form method="POST" action="/spring-mvc-xml/uploadFile" enctype="multipart/form-data">
+<form method="POST" action="/upload" enctype="multipart/form-data" th:object="${formData}">
     <table>
         <tr>
             <td>
                 <span>Select a file to upload</span>
             </td>
-            <td><input type="file" name="file"/></td>
+            <td><input type="file" th:field="*{file}"/></td>
+        </tr>
+        <tr>
+            <td>
+                <span>input bucket name</span>
+            </td>
+            <td><input type="text" th:field="*{bucketName}"/></td>
         </tr>
         <tr>
             <td><input type="submit" value="Submit"/></td>

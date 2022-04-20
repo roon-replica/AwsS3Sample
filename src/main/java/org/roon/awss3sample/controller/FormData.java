@@ -7,6 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Setter
 @Getter
 public class FormData {
-    private String name;
+    private String bucketName;
     private MultipartFile file;
 }

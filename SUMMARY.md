@@ -20,7 +20,7 @@
 
 ### file upload in spring mvc
 - spring offers multipart (file upload) support
-  - MultipartResolver 객체
+  - MultipartResolver 객체 사용하여 support
 - 
 
 ### references

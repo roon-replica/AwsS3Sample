@@ -44,11 +44,11 @@ public class S3ApiController {
         return s3Service.getObject(bucketName, objectKey);
     }
 
-    @PostMapping("/buckets/{bucketName}/upload")
-    public void upload(@PathVariable String bucketName, @ModelAttribute FormData formData){
-        // 일단 전달받은 multipart 파일 컴터에 저장하고 컴터에서 저장한 파일 불러오기
-        s3Service.upload(bucketName,formData.getName(),);
-    }
+//    @PostMapping("/buckets/{bucketName}/upload")
+//    public void upload(@PathVariable String bucketName, @ModelAttribute FormData formData){
+//        // 일단 전달받은 multipart 파일 컴터에 저장하고 컴터에서 저장한 파일 불러오기
+////        s3Service.upload(bucketName,formData.getName(),);
+//    }
 
     @ExceptionHandler(IllegalArgumentException.class)
     ResponseEntity<String> illegalArgsException(IllegalArgumentException e) {
