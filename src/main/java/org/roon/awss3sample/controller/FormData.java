@@ -8,5 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Getter
 public class FormData {
     private String bucketName;
-    private MultipartFile file;
+    private String objKey;
+    private MultipartFile file;  // MultipartFile class provides access to details about the uploaded file
 }
