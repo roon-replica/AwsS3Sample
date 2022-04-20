@@ -10,7 +10,7 @@
 - [x] create bucket 
 - [x] delete bucket
 - [x] download object
-- [ ] upload
+- [x] upload (form -> S3)
 - [ ] copy, move, rename object
 
 ### steps
@@ -24,5 +24,9 @@
 - 
 
 ### references
-- https://www.baeldung.com/aws-s3-java 
-- https://www.baeldung.com/spring-file-upload
+- aws s3 with java sdk
+  - https://www.baeldung.com/aws-s3-java 
+- file upload
+  - https://www.baeldung.com/spring-file-upload
+- form submission
+  - https://spring.io/guides/gs/handling-form-submission/
