@@ -29,8 +29,8 @@ public class S3ApiController {
     // bucket이 비어있지 않으면 예외 발생
     // com.amazonaws.services.s3.model.AmazonS3Exception: The bucket you tried to delete is not empty
     @DeleteMapping("/buckets/{bucketName}")
-    public void delete(@PathVariable String bucketName) {
-        s3Service.delete(bucketName);
+    public void deleteBucket(@PathVariable String bucketName) {
+        s3Service.deleteBucket(bucketName);
     }
 
     //list all the available objects in our S3 bucket:
@@ -44,11 +44,10 @@ public class S3ApiController {
         return s3Service.getObject(bucketName, objectKey);
     }
 
-//    @PostMapping("/buckets/{bucketName}/upload")
-//    public void upload(@PathVariable String bucketName, @ModelAttribute FormData formData){
-//        // 일단 전달받은 multipart 파일 컴터에 저장하고 컴터에서 저장한 파일 불러오기
-////        s3Service.upload(bucketName,formData.getName(),);
-//    }
+    @DeleteMapping("/buckets/{bucketName}/objects/{objectKey}")
+    public void deleteObject(@PathVariable String bucketName, @PathVariable String objectKey) {
+        s3Service.deleteObject(bucketName, objectKey);
+    }
 
     @ExceptionHandler(IllegalArgumentException.class)
     ResponseEntity<String> illegalArgsException(IllegalArgumentException e) {
