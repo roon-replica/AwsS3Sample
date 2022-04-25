@@ -7,8 +7,10 @@
   
 ### TODO
 - use AWS SDK for java 
-- [x] create bucket 
+- [x] create bucket
+- [x] upload file
 - [x] delete bucket
+- [x] delete object
 - [x] download object
 - [x] upload (form -> S3)
 - [ ] copy, move, rename object
