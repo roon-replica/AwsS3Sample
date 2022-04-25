@@ -23,12 +23,11 @@
 ### file upload in spring mvc
 - spring offers multipart (file upload) support
   - MultipartResolver 객체 사용하여 support
-- 
-
-### references
-- aws s3 with java sdk
-  - https://www.baeldung.com/aws-s3-java 
 - file upload
   - https://www.baeldung.com/spring-file-upload
 - form submission
   - https://spring.io/guides/gs/handling-form-submission/
+  - 
+### aws s3 java sdk references
+- aws s3 with java sdk
+  - https://www.baeldung.com/aws-s3-java 
